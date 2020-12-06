@@ -1,6 +1,6 @@
 module.exports = {
     "/books/": {
-        post: {
+        get: {
             tags: ['book'],
             summary: "Get all book list",
             operationId: 'getAllBooks',
@@ -34,7 +34,9 @@ module.exports = {
                         'application/json': {
                             schema: {
                                 type: 'array',
-                                ref: '#/components/schemas/books'
+                                items: {
+                                    $ref: '#/components/schemas/books'
+                                }
                             }
                         }
                     }
@@ -50,16 +52,19 @@ module.exports = {
             }
         }
     },
-    "/users/register": {
+    "/books": {
         post: {
-            tags: ['users'],
-            summary: "Register new users",
-            operationId: 'regisUsers',
+            tags: ['book'],
+            summary: "Create new book resource.",
+            operationId: 'newBook',
+            security: [{
+                bearerAuth: []
+            }],
             requestBody: {
                 content: {
-                    'application/json': {
+                    'multipart/form-data': {
                         schema: {
-                            $ref: '#/components/schemas/users'
+                            $ref: '#/components/schemas/books'
                         }
                     }
                 },
@@ -72,16 +77,16 @@ module.exports = {
                     content: {
                         'application/json': {
                             schema: {
-                                $ref: '#/components/schemas/users'
+                                $ref: '#/components/schemas/books'
                             }
                         }
                     }
                 },
-                400: {
+                401: {
                     description: 'Invalid parameters',
                     content: {
                         'application/json': {
-                            example: 'User already registered.'
+                            example: 'Access denied. No token provided.'
 
                         }
                     }

@@ -17,13 +17,17 @@ module.exports = {
                 type: 'string',
                 example: 'david milar'
             },
+            bookImage: {
+                type: 'file',
+                nullable: false
+            },
             genre: {
-                type: 'array',
-                example: ['romantic', 'horror']
+                type: 'string',
+                example: 'romantic,horror'
             },
             releaseDate: {
                 type: 'string',
-
+                example: '2018'
             }
         }
     }

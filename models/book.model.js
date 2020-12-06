@@ -20,13 +20,9 @@ const bookSchema = new Schema({
         maxlength: 255
     },
     genre: {
-        type: Array,
-        validate: {
-            validator: function (v) {
-                return v && v.length > 0;
-            },
-            message: 'A book should have at least one genre.'
-        }
+        type: String,
+        required: true,
+        trim: true,
     },
     releaseDate: {
         type: String,
@@ -53,7 +49,7 @@ function validateBook(book) {
     const schema = Joi.object({
         bookName: Joi.string().min(3).max(50).required(),
         author: Joi.string().min(2).max(50).required(),
-        genre: Joi.array().items(Joi.string().required()).unique((a, b) => a === b),
+        genre: Joi.string().required(),
         releaseDate: Joi.date().required(),
         bookImage: Joi.object().required(),
         isActivate: Joi.boolean().default(false)
