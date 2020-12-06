@@ -1,15 +1,15 @@
-const hadith = require('./hadith');
+const hadith = require('./users');
+const books = require('./books');
 
 
 
 module.exports = {
-    ...hadith,
+    ...hadith, ...books,
     Error: {
         type: 'object',
         properties: {
-            message: {
-                type: 'string'
-            }
+            type: 'string'
+
         }
     }
 };

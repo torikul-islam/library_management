@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
         delete user.password;
         res.send(user);
     } catch (ex) {
-        res.status(400).send({ status: 400, message: ex.message });
+        res.status(400).send(ex.message);
     }
 
 });

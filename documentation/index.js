@@ -4,34 +4,22 @@ const paths = require('./paths');
 module.exports = {
     openapi: '3.0.1',
     info: {
-        title: 'iqra',
-        description: 'Online education learning platform',
-        // termsOfService: '',
-        // contact: {
-        //     name: 'Wolox',
-        //     email: 'tls@wolox.com.ar',
-        //     url: 'https://www.wolox.com.ar/'
-        // },
-        // license: {
-        //     name: 'MIT'
-        // },
+        title: 'Library management'
     },
-    servers: [
-        {
-            url: 'http://apibeta.iqra-live.com/api/v1',
-            description: 'Production server'
-        }
-    ],
+    servers: [{
+        url: 'https://gentle-plains-07058.herokuapp.com/',
+        description: 'production server'
+    }],
     paths,
     components: {
-        schemas
-        // securitySchemes: {
-        //     ApiKeyAuth: {
-        //         type: 'apiKey',
-        //         in: 'header',
-        //         name: 'x-api-key'
-        //     }
-        // }
+        schemas,
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
     }
 
 

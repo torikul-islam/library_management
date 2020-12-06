@@ -1,8 +1,9 @@
 
-const hadith = require('./hadith');
+const hadith = require('./users');
+const books = require('./books');
 
 
 
 module.exports = {
-    ...hadith
+    ...hadith, ...books
 };
