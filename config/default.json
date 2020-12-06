@@ -1,0 +1,4 @@
+{
+    "dbUrl": "mongodb://localhost:27017/library_management",
+    "jwtSecret": "strong*22MHsd"
+}

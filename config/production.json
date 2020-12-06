@@ -1,0 +1,4 @@
+{
+    "dbUrl": "mongodb+srv://torikul:12345@cluster0.3xmga.mongodb.net/library_management?retryWrites=true&w=majority",
+    "jwtSecret": "strong*22MHsd"
+}
