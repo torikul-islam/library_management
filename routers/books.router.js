@@ -24,7 +24,7 @@ router.post('/', [auth, librarian], async (req, res) => {
     if (req.body['genre']) req.body['genre'] = JSON.parse(req.body['genre']);
 
     let { error, value } = validate({ ...req.body, bookImage: req.files });
-    if (error) return res.status(400).send(message: error.details.map(x => x.message));
+    if (error) return res.status(400).send({ message: error.details.map(x => x.message) });
 
     let { bookName, author, genre, releaseDate, bookImage, isActivate } = req.body;
     const img = req.files.bookImage;
