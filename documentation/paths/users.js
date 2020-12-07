@@ -29,9 +29,7 @@ module.exports = {
                     description: 'success',
                     content: {
                         'application/json': {
-
                             example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNjOWQxNTdhY2U4ZmVlZjliZWQxZDciLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImxpYnJhcmlhbiIsImlhdCI6MTYwNzI1MDE4NCwiZXhwIjoxNjA3MzM2NTg0fQ.PAwrsTh79QmCsWEmfWg58smKIU4uObgqMfLgtjNiigY'
-
                         }
                     }
                 },
