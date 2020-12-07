@@ -53,7 +53,7 @@ router.put('/', [auth, librarian], async (req, res) => {
 
     if (rest.hasOwnProperty('bookImage')) {
         let img = req.files.bookImage;
-        bookImage = 'uploads/' + Date.now() + '_' + Math.round(Math.random() * 1E9) + path.extname(img.name);
+        rest.bookImage = 'uploads/' + Date.now() + '_' + Math.round(Math.random() * 1E9) + path.extname(img.name);
         img.mv(bookImage);
     }
 
