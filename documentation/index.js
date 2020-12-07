@@ -9,7 +9,12 @@ module.exports = {
     servers: [{
         url: 'https://gentle-plains-07058.herokuapp.com/',
         description: 'production server'
-    }],
+    },
+    {
+        url: 'http://localhost:5000/',
+        description: 'production server'
+    }
+    ],
     paths,
     components: {
         schemas,

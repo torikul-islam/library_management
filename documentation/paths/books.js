@@ -119,10 +119,7 @@ module.exports = {
                                     type: 'string',
                                     example: 'david milar'
                                 },
-                                bookImage: {
-                                    type: 'file',
-                                    nullable: false
-                                },
+
                                 genre: {
                                     type: 'string',
                                     example: 'romantic,horror'

@@ -23,15 +23,21 @@ const bookSchema = new Schema({
         type: String,
         required: true,
         trim: true,
+        minlength: 2,
+        maxlength: 255
     },
     releaseDate: {
         type: String,
         required: true,
+        minlength: 2,
+        maxlength: 255
     },
     bookImage: {
         type: String,
         required: true,
         trim: true,
+        minlength: 2,
+        maxlength: 255
     },
     isActivate: {
         type: Boolean,

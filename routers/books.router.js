@@ -47,14 +47,8 @@ router.post('/', [auth, librarian], async (req, res) => {
 });
 
 router.put('/', [auth, librarian], async (req, res) => {
-    let { _id, ...rest } = req.body;
+    let { _id, bookImage, ...rest } = req.body;
     if (!_id) return res.status(400).send('Id field not found in request body.')
-
-    if (rest.hasOwnProperty('bookImage')) {
-        let img = req.files.bookImage;
-        rest.bookImage = 'uploads/' + Date.now() + '_' + Math.round(Math.random() * 1E9) + path.extname(img.name);
-        img.mv(bookImage);
-    }
 
     try {
         const book = await Book.findOneAndUpdate(_id, {
@@ -64,8 +58,6 @@ router.put('/', [auth, librarian], async (req, res) => {
     } catch (ex) {
         res.status(400).send(ex.message)
     }
-
-
 
 });
 
