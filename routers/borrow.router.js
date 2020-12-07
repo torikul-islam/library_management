@@ -39,10 +39,10 @@ router.post('/books', [auth, student], async (req, res) => {
 });
 
 
-router.get('/books', [auth], async (req, res) => {
+router.get('/books', [auth, student], async (req, res) => {
 
     try {
-        const allBooks = await BorrowBook.find({ returnTime: { $gte: new Date() } })
+        const allBooks = await BorrowBook.find({ user: req.user._id })
             .select('-__v]')
             .sort('borrowTime')
             .populate('book', '-__v')

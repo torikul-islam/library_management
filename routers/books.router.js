@@ -48,11 +48,18 @@ router.post('/', [auth, librarian], async (req, res) => {
 
 router.put('/', [auth, librarian], async (req, res) => {
     const { _id, ...rest } = req.body;
+    if (!_id) return res.status(400).send('Id field not found in request body.')
 
-    const book = await Book.findOneAndUpdate(req.body._id, {
-        ...rest
-    }, { new: true })
-    res.send(book)
+    try {
+        const book = await Book.findOneAndUpdate(req.body._id, {
+            ...rest
+        }, { new: true })
+        res.send(book)
+    } catch (ex) {
+        res.status(400).send(ex.message)
+    }
+
+
 
 });
 
