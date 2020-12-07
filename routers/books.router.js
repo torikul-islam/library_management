@@ -57,7 +57,7 @@ router.put('/', [auth, librarian], async (req, res) => {
     }
 
     try {
-        const book = await Book.findOneAndUpdate(req.body._id, {
+        const book = await Book.findOneAndUpdate(_id, {
             ...rest
         }, { new: true })
         res.send(book)
