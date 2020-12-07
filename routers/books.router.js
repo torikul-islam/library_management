@@ -47,19 +47,19 @@ router.post('/', [auth, librarian], async (req, res) => {
 });
 
 router.put('/', [auth, librarian], async (req, res) => {
-    let { _id, bookImage, ...rest } = req.body;
+    let { _id, ...rest } = req.body;
     bookImage = req.files;
     if (!_id) return res.status(400).send('Id field not found in request body.')
 
-    if (bookImage) {
-        img = req.files.bookImage;
+    if (rest.hasOwnProperty('bookImage')) {
+        let img = req.files.bookImage;
         bookImage = 'uploads/' + Date.now() + '_' + Math.round(Math.random() * 1E9) + path.extname(img.name);
         img.mv(bookImage);
     }
 
     try {
         const book = await Book.findOneAndUpdate(req.body._id, {
-            bookImage, ...rest
+            ...rest
         }, { new: true })
         res.send(book)
     } catch (ex) {
