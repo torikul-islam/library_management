@@ -1,3 +1,4 @@
+# Library management app
 
 # Getting started
 
@@ -22,3 +23,7 @@ To get the Node server running locally:
 - [mongoose](https://github.com/Automattic/mongoose) - For modeling and mapping MongoDB data to javascript 
 - [joi](https://github.com/sideway/joi) - For validating user input.
   
+
+
+## Documentation
+- [docs](https://gentle-plains-07058.herokuapp.com/api-docs/)
