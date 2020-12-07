@@ -48,7 +48,6 @@ router.post('/', [auth, librarian], async (req, res) => {
 
 router.put('/', [auth, librarian], async (req, res) => {
     let { _id, ...rest } = req.body;
-    bookImage = req.files;
     if (!_id) return res.status(400).send('Id field not found in request body.')
 
     if (rest.hasOwnProperty('bookImage')) {
